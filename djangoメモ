@@ -1,0 +1,31 @@
+
+
+Djangoメモ
+
+プロジェクトを立ち上げる
+django-admin startproject ここにプロジェクト名
+
+アプリケーションを作成
+python3 manage.py startapp アプリ名
+settings.pyにアプリ名を記入しないと認識されないので注意
+
+マイグレーションの設定はここのサイト
+https://di-acc2.com/programming/python/1694/
+
+urlの設定でApp_Folderのurls.pyにジャンプさせる方法
+from django.urls import include
+path('App_Folder/', include('App_Folder.urls'))
+
+引き継ぎメモ
+
+2022/12/15
+postでエラーでたからとりあえず
+http://localhost:8000/forms/QBTForm
+開いてみて
+
+2022/12/20
+ひとまずフォームの形が完成して
+値の受け渡しもうまく行った
+次はここを参考にアカウント作成フォームを作ってみる
+アプリ名はAccountAppにしておいたので注意
+https://qiita.com/knakajima3027/items/34b2a105da7cdb411736
