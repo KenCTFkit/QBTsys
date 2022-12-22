@@ -29,3 +29,8 @@ http://localhost:8000/forms/QBTForm
 次はここを参考にアカウント作成フォームを作ってみる
 アプリ名はAccountAppにしておいたので注意
 https://qiita.com/knakajima3027/items/34b2a105da7cdb411736
+
+2022/12/22
+とりあえずアカウント作成機能はついたので
+続いてQRコードとの連携を試してみる
+
