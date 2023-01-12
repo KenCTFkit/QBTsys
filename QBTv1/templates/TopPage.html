@@ -4,8 +4,20 @@
     {% if user.id  %}
     <p>ログインしました．</p>
     <p>こんにちは，{{ user.username }}さん</p>
+    <a href="{% url 'logout' %}">ログアウトする</a>
+    <a href="{% url 'formpage' %}">体温を登録する</a>
     {% else %}
     <a href="{% url 'user_create' %}">アカウント作成</a>
+    <a href="{% url 'login' %}">ログイン</a>
     {% endif %}
+
+    {% if messages %}
+    <div class="messages alert alert-primary" role="alert">
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+
   </body>
 </html>

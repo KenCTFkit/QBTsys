@@ -6,7 +6,7 @@ from django.shortcuts import render
 class TestView(FormView):
     template_name = 'App_Folder_HTML/formpage.html'
     form_class = QBTForm
-    success_url = '/'  # リダイレクト先URL
+    success_url = '/QBTsys/Home'  # リダイレクト先URL
 
     def form_valid(self, form):
         form.save()  # 保存処理など
