@@ -40,3 +40,24 @@ https://qiita.com/knakajima3027/items/34b2a105da7cdb411736
 今日はURLパラメータの受け渡しについて調べつつ色々実験した.
 次回でURLパラメータの受け渡しができるようにする.
 
+
+2023/01/17
+パラメータの受け渡しテスト用URL
+http://127.0.0.1:8000/QBTsys/forms/QRcode?tempA=37&tempB=3&Q1=1&Q2=0
+
+modelの変更時の手続き
+まずマイグレーションファイルを作る
+python3 manage.py makemigrations
+終わったらマイグレートすればおわり
+python3 manage.py migrate
+
+今回でアプリケーションが完成したので,
+次からは体温計の方に取り掛かる.
+
+
+
+時間があればやりたかったこと
+・カスタムユーザーの作成
+https://daeudaeu.com/django-abstractuser/
+時間が足りなくなるのでデフォルトのユーザー設定で実装
+

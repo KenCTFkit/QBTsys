@@ -2,9 +2,9 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 # モデルクラスを作成
-class User(models.Model):
+class QBTModel(models.Model):
 	# 項目定義
-    StudentID     = models.CharField(max_length=6)
+    StudentID     = models.CharField(max_length=150)
     TemperatureA    = models.IntegerField(validators=[MinValueValidator(32), MaxValueValidator(42)])
     TemperatureB    = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(9)])
     Q1 = models.BooleanField()

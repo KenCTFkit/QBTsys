@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <title>体温登録システムホーム</title>
   <body>
+    <h2>体温登録システムホーム</h2>
     {% if user.id  %}
     <p>ログインしました．</p>
     <p>こんにちは，{{ user.username }}さん</p>
-    <a href="{% url 'logout' %}">ログアウトする</a>
-    <a href="{% url 'formpage' %}">体温を登録する</a>
+    <a href="{% url 'AccountApp:logout' %}">ログアウトする</a>
+    <a href="{% url 'AccountApp:formpage' %}">体温を登録する</a>
     {% else %}
-    <a href="{% url 'user_create' %}">アカウント作成</a>
-    <a href="{% url 'login' %}">ログイン</a>
+    <a href="{% url 'AccountApp:user_create' %}">アカウント作成</a>
+    <a href="{% url 'AccountApp:login' %}">ログイン</a>
     {% endif %}
 
     {% if messages %}

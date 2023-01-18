@@ -8,17 +8,26 @@
     </ul>
     {% endif %}
 
-    {% with form as f %}
+    <body>
 
-    <form method="post">{% csrf_token %}
-      <div><label>{{ f.StudentID.label }}</label>: {{ f.StudentID }}</div>
-      <div><label>{{ f.TemperatureA.label }}</label>: {{ f.TemperatureA }} . {{ f.TemperatureB }}</div>
-      <div><label>{{ f.Q1.label }}</label>: {{ f.Q1 }}</div>
-      <div><label>{{ f.Q2.label }}</label>: {{ f.Q2 }}</div>
-      <div><label>{{ f.FreeText.label }}</label>: {{ f.FreeText }}</div>
-        <input type="submit" value="送信">
-    </form>
+    {% if user.id  %}
 
-    {% endwith %}
+        {% with form as f %}
+
+        <form method="post">{% csrf_token %}
+        <div><label>{{ f.StudentID.label }}</label>: {{ f.StudentID }}</div>
+        <div><label>{{ f.TemperatureA.label }}</label>: {{ f.TemperatureA }} . {{ f.TemperatureB }}</div>
+        <div><label>{{ f.Q1.label }}</label>: {{ f.Q1 }}</div>
+        <div><label>{{ f.Q2.label }}</label>: {{ f.Q2 }}</div>
+        <div><label>{{ f.FreeText.label }}</label>: {{ f.FreeText }}</div>
+            <input type="submit" value="送信">
+        </form>
+
+        {% endwith %}
+
+    {% else %}   
+        <p>あなたはまだログインしていません.</p>
+        <a href="{% url 'AccountApp:home' %}">ホーム</a>
+    {% endif %}
 
 {% endblock %}

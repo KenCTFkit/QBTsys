@@ -20,8 +20,9 @@ class HomeView(TemplateView):
 class UserCreateView(CreateView):
     template_name = 'user_create.html'
     form_class = UserCreationForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('AccountApp:home')
 
 class LogoutView(LoginRequiredMixin, LogoutView):
     """ログアウトページ"""
     template_name = 'TopPage.html'
+

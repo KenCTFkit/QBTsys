@@ -1,15 +1,8 @@
 from django import forms
 #モデルクラスを呼出
-from .models import User
-
+from .models import QBTModel
 #フォームクラス作成
 class QBTForm(forms.Form):
-
-    StudentID = forms.CharField(
-        label='ID',
-        max_length=6,
-        required=True, #必須項目か？
-    )    
     
     TemperatureA = forms.ChoiceField(
         label='体温',
@@ -69,9 +62,9 @@ class QBTForm(forms.Form):
         widget=forms.Textarea,
     )    
     
-    def save(self):
+    def save(self, username):
         # save data using the self.cleaned_data dictionary
         data = self.cleaned_data
-        post = User(StudentID=data['StudentID'], TemperatureA=data['TemperatureA'], TemperatureB=data['TemperatureB'], Q1=data['Q1'], Q2=data['Q2'], FreeText=data['FreeText'])
+        post = QBTModel(StudentID=username, TemperatureA=data['TemperatureA'], TemperatureB=data['TemperatureB'], Q1=data['Q1'], Q2=data['Q2'], FreeText=data['FreeText'])
         post.save()
  
