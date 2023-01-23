@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.views.generic import View
 from . forms import LoginForm
-
 #ログイン機能
 class Account_login(View):
     def post(self, request, *arg, **kwargs):
@@ -20,3 +19,4 @@ class Account_login(View):
         return render(request, 'login.html', {'form': form,})
 
 account_login = Account_login.as_view()
+

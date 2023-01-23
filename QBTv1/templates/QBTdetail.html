@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+  <html>
+      <head>
+          <meta charset="utf-8">
+          <title>
+          </title>
+      </head>
+      <body>
+  <h1>体温登録状況(最新順)</h1>
+
+  {% if user.id  %}
+  <a href="{% url 'AccountApp:home' %}">ホーム</a>
+  {% if QBTdet %}
+
+  <ol>
+      {% for person in QBTdet %}
+
+      <li>{{ person.created_at }} の登録</li>
+      <ul>
+          <li>体温: {{ person.TemperatureA}}.{{ person.TemperatureB}}</li>
+          {% if person.Q1 == 1 %}
+          <li>風邪症状: あり</li>
+          {% elif person.Q1 == 0 %}
+          <li>風邪症状: なし</li>
+          {% endif %}
+          {% if person.Q2 == 1 %}
+          <li>倦怠感: あり</li>
+          {% elif person.Q2 == 0 %}
+          <li>倦怠感: なし</li>
+          {% endif %}
+          <li>自由記述: {{ person.FreeText }}</li>
+      </ul>
+  {% endfor %}
+  </ol>
+{% endif %}
+  {% else %}   
+      <p>あなたはまだログインしていません.</p>
+      <a href="{% url 'AccountApp:home' %}">ホーム</a>
+  {% endif %}
+
+</body>
+</html> 

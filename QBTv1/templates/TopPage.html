@@ -8,6 +8,7 @@
     <p>こんにちは，{{ user.username }}さん</p>
     <a href="{% url 'AccountApp:logout' %}">ログアウトする</a>
     <a href="{% url 'AccountApp:formpage' %}">体温を登録する</a>
+    <a href="{% url 'AccountApp:detail' %}">体温登録履歴</a>
     {% else %}
     <a href="{% url 'AccountApp:user_create' %}">アカウント作成</a>
     <a href="{% url 'AccountApp:login' %}">ログイン</a>
