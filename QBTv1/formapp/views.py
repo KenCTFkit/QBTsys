@@ -20,9 +20,12 @@ class TestView(FormView):
 def SetQRparam(request):
 
     if request.user.is_authenticated:
-        post = QBTModel(StudentID=request.user.username, TemperatureA=request.GET.get("tempA"), TemperatureB=request.GET.get("tempB"), Q1=request.GET.get("Q1"), Q2=request.GET.get("Q2"), FreeText='体温計からの記録')
-        messages.add_message(request, messages.SUCCESS, '登録しました！')
-        post.save() 
+        if (int(request.GET.get("tempA")) < 43) & (int(request.GET.get("tempA")) > 31) & (int(request.GET.get("tempB")) <= 9) & (int(request.GET.get("tempB")) >= 0):
+            post = QBTModel(StudentID=request.user.username, TemperatureA=request.GET.get("tempA"), TemperatureB=request.GET.get("tempB"), Q1=request.GET.get("Q1"), Q2=request.GET.get("Q2"), FreeText='体温計からの記録')
+            messages.add_message(request, messages.SUCCESS, '登録しました！')
+            post.save()
+        else:
+            messages.add_message(request, messages.SUCCESS, '不正な値です')
 
     response = redirect('/QBTsys/Home')
     return response
