@@ -8,12 +8,9 @@ from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from formapp.models import QBTModel
 
+#ホーム
 def TopPageView(request):
     return render(request, 'TopPage.html')
-
-#ホーム
-class HomeView(TemplateView):
-    template_name = 'TopPage.html'
 
 #登録
 class UserCreateView(CreateView):
