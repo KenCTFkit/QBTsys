@@ -27,7 +27,6 @@ class LogoutView(LoginRequiredMixin, LogoutView):
 
 #登録状況
 def QBTdetailView(request):
-    ctx = {}
     SID = request.user.username
     q = QBTModel.objects.filter(StudentID=SID).order_by('created_at').reverse()
     user_dict = {'QBTdet': q}
